@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+    .bigbox{display:flex;flex-direction:row;align-items: center;}
+    @media screen and (max-width: 640px){
+        .bigbox{align-items: flex-start;flex-flow: row wrap;}
+        .b4{order: 1;}
+    }
+    .box{width: 150px;border: solid 1px;margin:20px;float:left; margin-top:10px;display: flex;}
+    .b1{height: 120px;order: 2;}
+    .b2{height: 100px;order: 3;}
+    .b3{height: 40px;order: 4;}
+    .b4{height: 200px;order: 5;}
+</style>
+<body>
+<div class="bigbox">
+    <div class="box b1">
+    </div>
+    <div class="box b2">
+    </div>
+    <div class="box b3">
+    </div>
+    <div class="box b4">
+    </div>
+</div>
+
+</body>
+</html>
