@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    table.ex1 {
+        border-spacing: 2
+    }
+    table.ex1 td, th {
+        padding: 0 0.2em
+    }
+    table.ex1 tr:first-child {
+        color: white;
+        background: black
+    }
+    table.ex1 tr:nth-child(n+2) {
+        color: red;
+    }
+    table.ex1 tr:nth-child(n+5) {
+        color: black;
+    }
+    table.ex1 tr:nth-child(2n+5) {
+        color: #000;
+        background: #FFFFFF
+    }
+    table.ex1 tr:nth-child(2n+2) {
+        background: #CCCCCC
+    }
+
+    .StrangeBox{
+        width: 100px;
+        transition: 1s width;
+    }
+    .StrangeBox:focus{
+        width: 200px;
+    }
+
+    #slider-wrapper {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        margin-bottom: 0px;
+        background: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+
+    #s1,#s2,#s3,#s4 {
+        height: 12px;
+        width: 12px;
+        padding: 5px;
+        color:white;
+        background: #000000;
+        position: absolute;
+        left: 50%;
+        bottom: 25px;
+        opacity: 0.3;
+        cursor: pointer;
+        z-index: 999;
+    }
+    #s1 {
+        margin-left: 30px;
+    }
+
+    #s2 {
+        margin-left: 60px;
+    }
+
+    #s3 {
+        margin-left: 90px;
+    }
+
+    #s4 {
+        margin-left: 120px;
+   }
+
+    #s1:hover,
+    #s2:hover,
+    #s3:hover,
+    #s4:hover {
+        opacity: .50;
+    }
+
+    .inner-wrapper {
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-bottom: 0px;
+        overflow: hidden;
+    }
+
+    .control {
+        display: none;
+    }
+
+    #Slide1:checked ~ .overflow-wrapper {
+        margin-left: 0%;
+    }
+
+    #Slide2:checked ~ .overflow-wrapper {
+        margin-left: -100%;
+    }
+
+    #Slide3:checked ~ .overflow-wrapper {
+        margin-left: -200%;
+    }
+
+    #Slide4:checked ~ .overflow-wrapper {
+        margin-left: -300%;
+    }
+
+    #Slide1:checked + #s1 {
+        opacity: 1;
+    }
+
+    #Slide2:checked + #s2 {
+        opacity: 1;
+    }
+
+    #Slide3:checked + #s3 {
+        opacity: 1;
+    }
+
+    #Slide4:checked + #s4 {
+        opacity: 1;
+    }
+
+    .overflow-wrapper {
+        width: 400%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow-y: hidden;
+        z-index: 1;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .slide img {
+        width: 25%;
+        float: left;
+    }
+</style>
+<body>
+<table class="ex1">
+<tbody>
+    <tr>
+        <th>排名</th>
+        <th>網站</th>
+        <th>熱度</th>
+    </tr>
+    <tr>
+        <td>1.</td>
+        <td>百度前端技術學院</td>
+        <td>13000</td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>百度前端技術學院</td>
+        <td>12000</td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>百度前端技術學院</td>
+        <td>11000</td>
+    </tr>
+    <tr>
+        <td>3.</td>
+        <td>百度前端技術學院</td>
+        <td>11000</td>
+    </tr>
+    <tr>
+        <td>4.</td>
+        <td>百度前端技術學院</td>
+        <td>10000</td>
+    </tr>
+    <tr>
+        <td>5.</td>
+        <td>百度前端技術學院</td>
+        <td>9000</td>
+    </tr>
+    <tr>
+        <td>6.</td>
+        <td>百度前端技術學院</td>
+        <td>8000</td>
+    </tr>
+    <tr>
+        <td>7.</td>
+        <td>百度前端技術學院</td>
+        <td>7000</td>
+    </tr>
+    <tr>
+        <td>8.</td>
+        <td>百度前端技術學院</td>
+        <td>6000</td>
+    </tr>
+    <tr>
+        <td>9.</td>
+        <td>百度前端技術學院</td>
+        <td>5000</td>
+    </tr>
+    <tr>
+        <td>10.</td>
+        <td>百度前端技術學院</td>
+        <td>4000</td>
+    </tr>
+
+    </tr>
+    </tbody>
+</table>
+<br>
+<input type="text" class="StrangeBox">
+<br>
+<br>
+<div id="slider-wrapper">
+    <div class="inner-wrapper">
+        <input checked type="radio" name="slide" class="control" id="Slide1" />
+        <label for="Slide1" id="s1">1</label>
+        <input type="radio" name="slide" class="control" id="Slide2"/>
+        <label for="Slide2" id="s2">2</label>
+        <input type="radio" name="slide" class="control" id="Slide3" />
+        <label for="Slide3" id="s3">3</label>
+        <input type="radio" name="slide" class="control" id="Slide4" />
+        <label for="Slide4" id="s4">4</label>
+        <div class="overflow-wrapper">
+            <a class="slide" href=""><img src="http://placehold.it/300x200" /></a>
+            <a class="slide" href=""><img src="http://placehold.it/300x200" /></a>
+            <a class="slide" href=""><img src="http://placehold.it/300x200" /></a>
+            <a class="slide" href=""><img src="http://placehold.it/300x200" /></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
